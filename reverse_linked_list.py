@@ -25,11 +25,14 @@ class LinkedList:
 
     def pop(self, data):
         current=self.head
+        prev=None
         while current.next:
             if current.next.data==data:
                 current.next = current.next.next
+                current.prev=prev
             else:
                 current=current.next
+                current.prev=current
 
     def printList(self):
         temp = self.head
@@ -39,16 +42,17 @@ class LinkedList:
 
 
 llist = LinkedList()
-llist.push(20)
+llist.push(1)
+llist.push(2)
+llist.push(3)
+llist.push(7)
+#llist.pop(1)
 llist.push(4)
-llist.push(15)
-llist.push(85)
-llist.pop(4)
-llist.push(60)
-llist.pop(20)
+llist.push(5)
+#llist.pop(4)
 
-#print ("Given Linked List")
+print ("Given Linked List")
 llist.printList()
-#llist.reverse()
-#print ("\nReversed Linked List")
-#llist.printList()
+llist.reverse()
+print ("\nReversed Linked List")
+llist.printList()
